@@ -6,7 +6,8 @@ const Constants = {
   orderDirection: 'asc',
   mediaTypes: {
     video: 'video',
-    image: 'image'
+    image: 'image',
+    img: 'img'
   },
   vendors: {
     ebay: 'Ebay',

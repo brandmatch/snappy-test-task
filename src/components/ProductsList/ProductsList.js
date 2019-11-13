@@ -28,13 +28,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Products = () => {
+const ProductsList = () => {
   const classes = useStyles()
 
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [filters, setFilters] = useState({ name: '', vendor: '' });
-  const [promotion, setPromotion] = useState({});
+  const [products, setProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([])
+  const [filters, setFilters] = useState({ name: '', vendor: '' })
+  const [promotion, setPromotion] = useState({})
   
   useEffect(() => {
     const fetchData = async () => {
@@ -112,7 +112,7 @@ const Products = () => {
             <MenuItem value="all">Show all</MenuItem>
             {map(Constants.vendors, (value, key) => {
               return (
-                <MenuItem value={key}>{value}</MenuItem>
+                <MenuItem key={key} value={key}>{value}</MenuItem>
               )
             })}
           </Select>
@@ -127,7 +127,7 @@ const Products = () => {
         {filteredProducts.map((data, index) => {
           if (!data.media) {
             return (
-              <Promotion kay={index} />
+              <Promotion key={index} />
             )
           }
           const media = data.media.some(media => media.type === Constants.mediaTypes.video) ?
@@ -143,4 +143,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default ProductsList
